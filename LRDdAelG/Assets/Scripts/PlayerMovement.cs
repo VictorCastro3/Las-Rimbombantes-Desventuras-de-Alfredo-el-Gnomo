@@ -17,13 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position += new Vector3(speed * Time.deltaTime * direction, -1, 0);
-    }
-
-    void FixelUpdate()
-    {
-        Rigidbody2D rb;
-        
+        gameObject.transform.position += new Vector3(speed * Time.deltaTime * direction, 0, 0);
     }
 
     public void changeDirection()
