@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void changeDirection()
     {
+        gameObject.transform.rotation *= Quaternion.Euler(0, 180, 0);
         direction *= -1;
     }
 
