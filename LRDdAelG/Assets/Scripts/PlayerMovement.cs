@@ -11,14 +11,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start del jugador ejecutado");
-        Debug.Log("GameManager.Instance en Start del jugador" + GameManager.Instance);
-
-        if (GameManager.Instance == null) 
-        {
-        Debug.LogError("Instance is NULL");
-        }
-
         GameManager.Instance.GivePlayer(gameObject);
     }
 
