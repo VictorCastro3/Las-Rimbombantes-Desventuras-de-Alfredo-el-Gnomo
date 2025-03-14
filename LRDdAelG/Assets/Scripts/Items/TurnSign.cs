@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
-public class Spring : MonoBehaviour
+
+
+public class TurnSign : MonoBehaviour
 {
+    private bool turn = false;
     void OnTriggerEnter2D(Collider2D other)
     {
         PlayerMovement player = GameManager.Instance.GetPlayer().GetComponent<PlayerMovement>();
-        if (player != null)
+        if (player != null && !turn)
         {
-            player.JumpSpring();
+            player.changeDirection();
         }
+        turn = !turn;
     }
 }
