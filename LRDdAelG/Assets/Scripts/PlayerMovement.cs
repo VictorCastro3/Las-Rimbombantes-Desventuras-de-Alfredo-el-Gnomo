@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed = 1;
     [SerializeField] float springJump = 10f;
+    [SerializeField] float bumperY = 1.5f;
+    [SerializeField] float bumperX = 5f;
     private Rigidbody2D rb;
 
     private int direction = 1;
@@ -30,6 +32,15 @@ public class PlayerMovement : MonoBehaviour
     public void JumpSpring()
     {
         rb.AddForce(new Vector2(0, springJump), ForceMode2D.Impulse);
+    }
+    public void JumpBumper(int i)
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+        if (direction != i)
+        {
+            changeDirection();
+        }
+        rb.AddForce(new Vector2(bumperX * direction, bumperY), ForceMode2D.Impulse);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
