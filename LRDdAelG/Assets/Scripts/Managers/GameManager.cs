@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     #region Atributos privados
     private static GameManager _instance;
     private GameObject Player;
+    private GameObject uimanager;
     #endregion
 
     #region Métodos MonoBehaviour
@@ -64,6 +65,16 @@ public class GameManager : MonoBehaviour
     public GameObject GetPlayer()
     {
         return Player;
+    }
+
+    public void GiveUI(GameObject UIManager)
+    {
+        uimanager = UIManager;
+    }
+
+    public GameObject GetUI()
+    {
+        return uimanager;
     }
     #endregion
 }
