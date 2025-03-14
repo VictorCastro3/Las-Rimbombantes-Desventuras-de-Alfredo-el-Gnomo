@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void JumpSpring()
     {
-        rb.velocity = new Vector3(0, 0, 0);
+        rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(new Vector2(0, springJump), ForceMode2D.Impulse);
     }
     public void JumpBumper(int i)
