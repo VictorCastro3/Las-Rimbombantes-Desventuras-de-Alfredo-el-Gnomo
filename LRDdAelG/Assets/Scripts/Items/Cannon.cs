@@ -11,6 +11,8 @@ public class Cannon : MonoBehaviour
     [SerializeField]private float rotationSpeed = 5f;
     private float currentRotation = 0f;
     private bool rotatingRight = true;
+    private bool restartTimer = false;
+    private float timer = 0f;
 
     void Update()
     {
@@ -22,6 +24,17 @@ public class Cannon : MonoBehaviour
         if (isTriggered && Input.GetMouseButtonDown(0))
         {
             LaunchPlayer();
+        }
+        if (restartTimer)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 0.75f)
+            {
+                timer = 0f;
+                restartTimer = false;
+                currentRotation = 0f;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
     }
 
@@ -70,8 +83,8 @@ public class Cannon : MonoBehaviour
             playerMovement.Launched(currentRotation, transform.up);
             isTriggered = false;
             isRotating = false;
-            currentRotation = 0f;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            restartTimer = true;
+
         }
     }
 }
