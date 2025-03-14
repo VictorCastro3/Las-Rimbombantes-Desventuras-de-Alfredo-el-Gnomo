@@ -6,12 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed = 1;
     [SerializeField] float springJump = 10f;
+    private Rigidbody2D rb;
 
     private int direction = 1;
     // Start is called before the first frame update
     void Start()
     {
         GameManager.Instance.GivePlayer(gameObject);
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -27,11 +29,11 @@ public class PlayerMovement : MonoBehaviour
     }
     public void JumpSpring()
     {
-        gameObject.transform.position += new Vector3(0, springJump, 0);
+        rb.AddForce(new Vector2(0, springJump), ForceMode2D.Impulse);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null)
+        if (collision != null && collision.CompareTag("Ground"))
         {
             changeDirection();
             Debug.Log("Cambia dirección");
