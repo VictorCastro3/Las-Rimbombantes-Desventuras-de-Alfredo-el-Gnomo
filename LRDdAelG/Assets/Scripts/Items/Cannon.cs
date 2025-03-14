@@ -32,6 +32,8 @@ public class Cannon : MonoBehaviour
         {
             Debug.Log("PLAYER-11!!!!");
             playerMovement.enabled = false;
+            playerMovement.GetComponent<Rigidbody2D>().gravityScale = 0;
+            playerMovement.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             isTriggered = true;
             isRotating = true;
         }
@@ -64,7 +66,8 @@ public class Cannon : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.enabled = true;
-            playerMovement.Launched(currentRotation);
+            playerMovement.GetComponent<Rigidbody2D>().gravityScale = 1;
+            playerMovement.Launched(currentRotation, transform.up);
             isTriggered = false;
             isRotating = false;
             currentRotation = 0f;
