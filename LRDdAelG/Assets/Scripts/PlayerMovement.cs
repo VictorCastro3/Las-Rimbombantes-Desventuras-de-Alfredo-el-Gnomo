@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float bumperX = 5f;
     [SerializeField] float fanY = 1.25f;
     [SerializeField] float fanX = 1.25f;
+    [SerializeField] float launchForce= 7f;
+    [SerializeField] float launchY= 4f;
     private Rigidbody2D rb;
 
     private int direction = 1;
@@ -60,8 +62,26 @@ public class PlayerMovement : MonoBehaviour
                 break;
             case 3:
                 rb.velocity = new Vector2(rb.velocity.x, -fanY);
-                break;//gas
+                break;
         }
+    }
+    public void Launched(float rotationAngle)
+    {
+        if (rotationAngle > 0)
+        {
+            if (direction != -1)
+            {
+                changeDirection();
+            }
+        }
+        else
+        {
+            if (direction != 1)
+            {
+                changeDirection();
+            }
+        }
+        rb.velocity = new Vector2(launchForce * Mathf.Cos(rotationAngle * Mathf.Deg2Rad) * direction, Mathf.Sin(rotationAngle * Mathf.Deg2Rad));
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
