@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     #region Atributos privados
-    private GameManager instance;
+    private static GameManager instance;
     private GameObject Player;
     #endregion
 
@@ -44,6 +45,10 @@ public class GameManager : MonoBehaviour
         
     }
     #endregion
+    public static GameManager Instance
+    {
+        get; private set;
+    }
 
     #region Métodos públicos
     public void GivePlayer(GameObject player)
