@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float springJump = 10f;
     [SerializeField] float bumperY = 1.5f;
     [SerializeField] float bumperX = 5f;
+    [SerializeField] float fanY = 1.25f;
+    [SerializeField] float fanX = 1.25f;
     private Rigidbody2D rb;
 
     private int direction = 1;
@@ -42,6 +44,24 @@ public class PlayerMovement : MonoBehaviour
             changeDirection();
         }
         rb.AddForce(new Vector2(bumperX * direction, bumperY), ForceMode2D.Impulse);
+    }
+    public void AirPush(int i)
+    {
+        switch (i)
+        {
+            case 0:
+                rb.velocity = new Vector2(-fanX, rb.velocity.y);
+                break;
+            case 1:
+                rb.velocity = new Vector2(fanX, rb.velocity.y);
+                break;
+            case 2:
+                rb.velocity = new Vector2(rb.velocity.x, fanY);
+                break;
+            case 3:
+                rb.velocity = new Vector2(rb.velocity.x, -fanY);
+                break;//gas
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
