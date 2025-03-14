@@ -43,7 +43,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         draggedObject = Instantiate(prefab);
         draggedObject.transform.position = GetSnappedWorldPosition();
-        draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, temp.y, 0);
+        draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
 
         SetObjectAlpha(draggedObject, 0.5f);
         SetObjectActiveState(draggedObject, false);
@@ -76,9 +76,9 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private Vector3 GetMouseWorldPosition()
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = GameManager.Instance.GetPlayer().gameObject.transform.position.z;
-        Debug.Log(mousePos);
-        return Camera.main.ScreenToWorldPoint(mousePos);
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+        worldPosition.z = 0;
+        return worldPosition;
     }
 
     private bool CanPlaceObject(Vector3Int cellPosition)
