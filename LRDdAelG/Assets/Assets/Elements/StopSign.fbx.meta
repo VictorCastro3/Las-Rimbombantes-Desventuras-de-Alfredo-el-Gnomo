@@ -38,11 +38,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: SignArmature|GoToStop (1)
-      takeName: SignArmature|GoToStop
+      name: SignArmature|Stop (1)
+      takeName: SignArmature|Stop
       internalID: -6285119223926222524
       firstFrame: 0
-      lastFrame: 12
+      lastFrame: 0
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
