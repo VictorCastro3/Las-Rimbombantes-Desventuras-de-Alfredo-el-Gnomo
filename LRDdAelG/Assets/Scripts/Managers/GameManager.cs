@@ -7,29 +7,30 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     #region Atributos privados
-    private static GameManager instance;
+    private static GameManager _instance;
     private GameObject Player;
     #endregion
 
     #region Métodos MonoBehaviour
     protected void Awake()
     {
-        if(instance != null)
+        if (_instance != null)
         {
             DestroyImmediate(this.gameObject);
         }
         else
         {
-            instance = this;
+            _instance = this;
             DontDestroyOnLoad(this.gameObject);
-        }
+            
+        } // if-else somos instancia nueva o no.
     }
 
     protected void OnDestroy()
     {
-        if(this == instance)
+        if(this == _instance)
         {
-            instance = null;
+            _instance = null;
         }
     }
 
@@ -42,12 +43,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Instance == null) Debug.Log("LA INSTANCIA\nES FUCKING NULLLLLL");
     }
     #endregion
     public static GameManager Instance
     {
-        get; private set;
+        get
+        {
+            Debug.Assert(_instance != null);
+            return _instance;
+        }
     }
 
     #region Métodos públicos
