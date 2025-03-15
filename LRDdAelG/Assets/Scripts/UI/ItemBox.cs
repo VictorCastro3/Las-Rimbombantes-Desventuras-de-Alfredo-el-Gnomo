@@ -27,19 +27,23 @@ public class ItemBox : MonoBehaviour
     {
         
     }
-    public void Active()
+    public void Active(bool act)
     {
-        active = true;
+        active = act;
     }
     public bool IsActive()
     {
         return active;
     }
-    public void UpdateSprite()
+    public void UpdateSprite(bool revert)
     {
         if (active)
         {
             BoxImage.sprite = ItemBoxSprites[1];
+        }
+        if (revert)
+        {
+            BoxImage.sprite = ItemBoxSprites[0];
         }
        
     }

@@ -7,7 +7,7 @@ using static UnityEngine.ParticleSystem;
 
 public class UIManager : MonoBehaviour
 {
-
+    public DragAndDrop[] dd;
     [SerializeField]
     private GameObject ChooseObj;
     [SerializeField]
@@ -33,7 +33,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         Inventory.SetActive(false);
-        itemBoxes[0].UpdateSprite();
+        ChooseObj.SetActive(true);
+        itemBoxes[0].UpdateSprite(false);
         //GameManager.Instance.GiveUI(gameObject);
     }
 
@@ -93,10 +94,10 @@ public class UIManager : MonoBehaviour
         {
             if (itemBoxes[1].IsActive() || itemBoxes[2].IsActive())
             {
-                itemBoxes[5].Active();
-                itemBoxes[6].Active();
-                itemBoxes[5].UpdateSprite();
-                itemBoxes[6].UpdateSprite();
+                itemBoxes[5].Active(true);
+                itemBoxes[6].Active(true);
+                itemBoxes[5].UpdateSprite(false);
+                itemBoxes[6].UpdateSprite(false);
             }
            
         }
@@ -104,20 +105,20 @@ public class UIManager : MonoBehaviour
         {
             if (itemBoxes[1].IsActive()|| itemBoxes[2].IsActive())
             {
-                itemBoxes[3].Active();
-                itemBoxes[4].Active();
-                itemBoxes[3].UpdateSprite();
-                itemBoxes[4].UpdateSprite();
+                itemBoxes[3].Active(true);
+                itemBoxes[4].Active(true);
+                itemBoxes[3].UpdateSprite(false);
+                itemBoxes[4].UpdateSprite(false);
             }            
         }
         else if (first)
         {
             if (!itemBoxes[1].IsActive()&& !itemBoxes[2].IsActive()&& !itemBoxes[3].IsActive()&& !itemBoxes[4].IsActive()&& !itemBoxes[5].IsActive()&& !itemBoxes[6].IsActive())
             {
-                itemBoxes[1].Active();
-                itemBoxes[2].Active();
-                itemBoxes[1].UpdateSprite();
-                itemBoxes[2].UpdateSprite();
+                itemBoxes[1].Active(true);
+                itemBoxes[2].Active(true);
+                itemBoxes[1].UpdateSprite(false);
+                itemBoxes[2].UpdateSprite(false);
                 first = false;
             }
            
@@ -130,6 +131,24 @@ public class UIManager : MonoBehaviour
             }
            
         }
+    }
+    public void RevertToChoose()
+    {
+        Inventory.SetActive(false);
+        ChooseObj.SetActive(true);
+        for(int i = 0; i < itemBoxes.Length; i++)
+        {
+            itemBoxes[i].Active(false);
+            itemBoxes[i].UpdateSprite(true);
+        }
+        itemBoxes[0].Active(true);
+        itemBoxes[0].UpdateSprite(false);
+        for(int i = 0;i<dd.Length; i++)
+        {
+            dd[i].prefab = null;
+        }
+        
+        
     }
    
 }
