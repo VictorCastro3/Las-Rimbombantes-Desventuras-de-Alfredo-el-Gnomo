@@ -153,6 +153,11 @@ public class Subtitles : MonoBehaviour
 
 
         }
+        else if (end)
+        {
+            //play audio
+            SetSubtitleText("Tras finalmente conseguir la tarta definitiva, Alfredo se la come y experimenta un estado de placer gastronómico que nunca se ha alcanzado y nunca se volverá a alcanzar. Después, vuelve a casa y continúa con su vida");
+        }
     }
 
     public void SetSubtitleText(string newText)
