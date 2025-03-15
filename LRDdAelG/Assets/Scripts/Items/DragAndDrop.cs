@@ -21,6 +21,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     #region Atributos del Inspector (serialized fields)
     [SerializeField] GameObject prefab;
     [SerializeField] Tilemap tilemap; //tilemap
+    [SerializeField] Vector2Int objectSize = new Vector2Int(1, 1);
 
     #endregion
 
@@ -31,10 +32,9 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private bool isValidPlacement = false;
 
     #endregion
-    
+
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
-
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
@@ -45,34 +45,35 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         draggedObject.transform.position = GetSnappedWorldPosition();
         draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
 
-        SetObjectAlpha(draggedObject, 0.5f);
         SetObjectActiveState(draggedObject, false);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (draggedObject == null) return;
-        Vector3Int cellPosition = tilemap.WorldToCell(GetMouseWorldPosition());
-        draggedObject.transform.position = tilemap.CellToWorld(cellPosition) + new Vector3(0.5f, 0.5f, 0);
+        Vector3 position = GetSnappedWorldPosition();
+        draggedObject.transform.position = position;
 
-        if (CanPlaceObject(cellPosition)) lastValidCell = cellPosition;
+        isValidPlacement = CanPlaceObject(position, objectSize);
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         if (draggedObject == null) return;
 
-        if (CanPlaceObject(lastValidCell)) draggedObject.transform.position = tilemap.CellToWorld(lastValidCell) + new Vector3(0.5f, 0.5f, 0);
-        else Destroy(gameObject);
-
-        SetObjectAlpha(draggedObject, 1f);
-        SetObjectActiveState(draggedObject, true);
+        Vector3 finalPosition = GetSnappedWorldPosition();
+        if (isValidPlacement)
+        {
+            draggedObject.transform.position = finalPosition;
+            SetObjectActiveState(draggedObject, true);
+        }
+        else Destroy(draggedObject);
     }
 
     #endregion
 
     // ---- MÉTODOS PRIVADOS ----
     #region Métodos Privados
-    
+
     private Vector3 GetMouseWorldPosition()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -81,9 +82,12 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         return worldPosition;
     }
 
-    private bool CanPlaceObject(Vector3Int cellPosition)
+    private bool CanPlaceObject(Vector3 position, Vector2 tamaño)
     {
-        return ! tilemap.HasTile(cellPosition);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(position, tamaño / 2, 0);
+
+        Debug.Log($"Detecado colliders: {colliders.Length} en {position}");
+        return colliders.Length == 0;
     }
 
     private Vector3 GetSnappedWorldPosition()
@@ -92,30 +96,15 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         return tilemap.CellToWorld(cellPosition) + new Vector3(0.5f, 0.5f, 0);
     }
 
-    private void SetObjectAlpha(GameObject objeto, float alpha)
-    {
-        MeshRenderer[] meshRenderers = objeto.GetComponentsInChildren<MeshRenderer>();
-        foreach(MeshRenderer renderer in meshRenderers)
-        {
-            foreach (Material material in renderer.materials)
-            {
-                Color color = material.color;
-                color.a = alpha;
-                material.color = color;
-                material.SetFloat("Modo", 3);
-            }
-        }
-    }
-
     private void SetObjectActiveState(GameObject objeto, bool estado)
     {
         MonoBehaviour[] scripts = objeto.GetComponentsInChildren<MonoBehaviour>();
         Collider2D[] colliders = objeto.GetComponentsInChildren<Collider2D>();
-        foreach(var script in scripts)
+        foreach (var script in scripts)
         {
             script.enabled = estado;
         }
-        foreach(var collider in colliders)
+        foreach (var collider in colliders)
         {
             collider.enabled = estado;
         }
