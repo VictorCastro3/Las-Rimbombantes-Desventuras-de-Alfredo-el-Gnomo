@@ -17,8 +17,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image itemBoxImage;
     [SerializeField]
-    private bool chooseFase = true;
-    [SerializeField]
     private bool top = false;
     [SerializeField]
     private bool bottom = false;

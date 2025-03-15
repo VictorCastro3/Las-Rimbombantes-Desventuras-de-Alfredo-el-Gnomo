@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ItemBox : MonoBehaviour
 {
+    public DragAndDrop[] dd;
+    [SerializeField]
+    private GameObject item;
     [SerializeField]
     private UIManager ui; // The UIManager component
     [SerializeField]
@@ -39,5 +42,32 @@ public class ItemBox : MonoBehaviour
             BoxImage.sprite = ItemBoxSprites[1];
         }
        
+    }
+    public void GetItem()
+    {
+        if (active)
+        {
+            GameObject parentObject = dd[0].gameObject.transform.parent.gameObject;
+            bool wasActive = parentObject.activeSelf;
+
+            if (!wasActive)
+            {
+                parentObject.SetActive(true);
+            }
+
+            foreach (var dragAndDrop in dd)
+            {
+                if (dragAndDrop.prefab == null)
+                {
+                    dragAndDrop.prefab = item;
+                    break; // Exit the loop after assigning the item to the first available DragAndDrop instance
+                }
+            }
+
+            if (!wasActive)
+            {
+                parentObject.SetActive(false);
+            }
+        }      
     }
 }

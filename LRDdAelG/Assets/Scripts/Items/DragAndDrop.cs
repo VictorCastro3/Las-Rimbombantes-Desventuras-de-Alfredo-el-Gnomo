@@ -19,7 +19,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 {
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
-    [SerializeField] GameObject prefab;
+    public GameObject prefab;
     [SerializeField] Tilemap tilemap; //tilemap
 
     #endregion
