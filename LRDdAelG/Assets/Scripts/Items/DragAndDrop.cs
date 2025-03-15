@@ -7,7 +7,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
-using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
@@ -45,12 +44,11 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         if (firstTime)
         {
             draggedObject = Instantiate(prefab);
-            draggedObject.transform.position = GetSnappedWorldPosition();
-            draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
-
-            SetObjectActiveState(draggedObject, false);
-            firstTime = false;
         }
+        draggedObject.transform.position = GetSnappedWorldPosition();
+        draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
+
+        SetObjectActiveState(draggedObject, false);
 
     }
 
@@ -71,8 +69,13 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         {
             draggedObject.transform.position = finalPosition;
             SetObjectActiveState(draggedObject, true);
+            firstTime = false;
         }
-        else Destroy(draggedObject);
+        else
+        {
+            Destroy(draggedObject);
+            firstTime = true;
+        }
     }
 
     #endregion
