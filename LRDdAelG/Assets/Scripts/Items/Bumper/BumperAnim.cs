@@ -13,7 +13,7 @@ public class BumperAnim : MonoBehaviour
     }
     void Update()
     {
-        if (timer >= 0.2f && activo)
+        if (timer >= 0.3f && activo)
         {
             animator.SetBool("active", false);
             timer = 0f;
