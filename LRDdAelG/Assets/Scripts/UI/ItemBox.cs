@@ -11,6 +11,8 @@ public class ItemBox : MonoBehaviour
     private Image BoxImage; // The box image
     [SerializeField]
     private Sprite[] ItemBoxSprites; // The item box sprites
+    [SerializeField]
+    private bool active = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +24,20 @@ public class ItemBox : MonoBehaviour
     {
         
     }
+    public void Active()
+    {
+        active = true;
+    }
+    public bool IsActive()
+    {
+        return active;
+    }
     public void UpdateSprite()
     {
-        BoxImage.sprite = ItemBoxSprites[1];
+        if (active)
+        {
+            BoxImage.sprite = ItemBoxSprites[1];
+        }
+       
     }
 }
