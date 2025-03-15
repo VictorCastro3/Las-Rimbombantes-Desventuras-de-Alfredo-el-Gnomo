@@ -5,15 +5,12 @@ using UnityEngine;
 
 public class StopSign : MonoBehaviour
 {
-    private PlayerMovement playerMovement;
-    private bool stopped = false;
-    private Collider2D stopCollider;
+    private bool stopped = true;
+    private PlayerMovement playerMovement = GameManager.Instance.GetPlayer().GetComponent<PlayerMovement>();
     // Start is called before the first frame update
     private void Start()
     {
-        playerMovement = FindObjectOfType<PlayerMovement>();
-        stopCollider = GetComponent<Collider2D>();  // Obtener el Collider2D de la señal de stop
-        stopCollider.enabled = true;  // Asegurarse de que el collider esté habilitado
+        
     }
 
     // Update is called once per frame
@@ -21,29 +18,27 @@ public class StopSign : MonoBehaviour
     {    
         if (stopped && Input.GetMouseButtonDown(0)) 
         {
-            ReanudeMove();
+            ChangeState();
+        }
+
+        if (!stopped)
+        {
+           playerMovement.CanPlayerMove(true);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.GetComponent<PlayerMovement>() != null && stopped)
         {
             Debug.Log("WAIT, then Click");
-            playerMovement.enabled = false;  // Detiene el movimiento del jugador
-            stopped = true;  // Marca que el jugador está detenido
-            stopCollider.enabled = true;
+            playerMovement.CanPlayerMove(false);
         }
-
     }
 
-    private void ReanudeMove()
+    private void ChangeState()
     {
-        if (stopped) 
-        {
-            playerMovement.enabled = true;
-            stopped = false;
-            stopCollider.enabled = false;
-        }
+        stopped = !stopped;
     }
 
 }

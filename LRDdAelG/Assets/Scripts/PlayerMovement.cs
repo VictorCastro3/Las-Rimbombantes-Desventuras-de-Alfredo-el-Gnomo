@@ -10,13 +10,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float bumperX = 5f;
     [SerializeField] float fanY = 1.25f;
     [SerializeField] float fanX = 1.25f;
-    [SerializeField] float launchForce= 7f;
-    [SerializeField] bool touched = true;
+    [SerializeField] float launchForce= 7f;    
     
 
     private Rigidbody2D rb;
-
     private int direction = 1;
+    private bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (speed > 0)
+        if (speed > 0 && canMove)
         {
             gameObject.transform.position += new Vector3(speed * Time.deltaTime * direction, 0, 0);
         }
@@ -86,6 +85,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         rb.AddForce(upVector * launchForce, ForceMode2D.Impulse);
+    }
+
+    public bool CanPlayerMove(bool canPlayerMove)
+    {
+        canMove = canPlayerMove;
+        return canMove;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
