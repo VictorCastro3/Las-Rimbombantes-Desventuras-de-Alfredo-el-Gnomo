@@ -24,6 +24,10 @@ public class UIManager : MonoBehaviour
     private bool first = true;
     [SerializeField]
     private bool last = false;
+    [SerializeField]
+    private bool toptop = false;
+    [SerializeField]
+    private bool bottombottom = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,39 +51,81 @@ public class UIManager : MonoBehaviour
     }
     public void Top()
     {
-        top = true;
+        if(itemBoxes[1].IsActive()) top = true;
+
     }
     public void Bottom()
     {
-        bottom = true;
+        if (itemBoxes[2].IsActive()) bottom = true;
     }
     public void Last()
     {
-        last = true;
+        if (itemBoxes[5].IsActive()|| itemBoxes[6].IsActive()|| itemBoxes[3].IsActive()|| itemBoxes[4].IsActive()) last = true;
+    }
+    public void First()
+    {
+        first = true;
+    }
+    public void TopTop()
+    {
+        if(top) toptop = true;
+        top = false;
+    }
+    public void BottomBottom()
+    {
+        if(bottom) bottombottom=true;
+        bottom = false;
+    }
+    public bool IsTopTop()
+    {
+        return toptop;
+    }
+    public bool IsBottomBottom()
+    {
+        return bottombottom;
     }
     private void RevealBox()
     {
         if (top)
         {
-            itemBoxes[5].UpdateSprite();
-            itemBoxes[6].UpdateSprite();
-            top = false;
+            if (itemBoxes[1].IsActive() || itemBoxes[2].IsActive())
+            {
+                itemBoxes[5].Active();
+                itemBoxes[6].Active();
+                itemBoxes[5].UpdateSprite();
+                itemBoxes[6].UpdateSprite();
+            }
+           
         }
         else if (bottom)
         {
-            itemBoxes[3].UpdateSprite();
-            itemBoxes[4].UpdateSprite();
-            bottom= false;
+            if (itemBoxes[1].IsActive()|| itemBoxes[2].IsActive())
+            {
+                itemBoxes[3].Active();
+                itemBoxes[4].Active();
+                itemBoxes[3].UpdateSprite();
+                itemBoxes[4].UpdateSprite();
+            }            
         }
         else if (first)
         {
-            itemBoxes[1].UpdateSprite();
-            itemBoxes[2].UpdateSprite();
-            first = false;
+            if (!itemBoxes[1].IsActive()&& !itemBoxes[2].IsActive()&& !itemBoxes[3].IsActive()&& !itemBoxes[4].IsActive()&& !itemBoxes[5].IsActive()&& !itemBoxes[6].IsActive())
+            {
+                itemBoxes[1].Active();
+                itemBoxes[2].Active();
+                itemBoxes[1].UpdateSprite();
+                itemBoxes[2].UpdateSprite();
+                first = false;
+            }
+           
         }
         else if(last)
         {
-            EndChoose();
+            if (itemBoxes[5].IsActive() && IsTopTop() || itemBoxes[6].IsActive() && IsTopTop() || itemBoxes[3].IsActive() && IsBottomBottom() || itemBoxes[4].IsActive() && IsBottomBottom()) 
+            {
+                EndChoose();
+            }
+           
         }
     }
    
