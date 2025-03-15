@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7ff92ef902b70d48831a142a8a70625, type: 3}
       propertyPath: m_Name
-      value: Trampoline
+      value: Spring
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

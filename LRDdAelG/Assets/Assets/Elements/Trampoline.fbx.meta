@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: TrampolineArmature|GetBackToRest
-      takeName: TrampolineArmature|GetBackToRest
+      name: TrampolineArmature|IsDown (1)
+      takeName: TrampolineArmature|IsDown
       internalID: -317972036423550740
       firstFrame: 0
-      lastFrame: 9
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
