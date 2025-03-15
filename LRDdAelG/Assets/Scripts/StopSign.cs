@@ -3,46 +3,47 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class StopSign : MonoBehaviour
 {
-    [SerializeField] float stopTime = 2.0f;
-    [SerializeField] float timerstoptime;
-    [SerializeField] bool touched;
-    [SerializeField] Rigidbody2D rb;
-
+    private PlayerMovement playerMovement;
+    private bool stopped = false;
+    private Collider2D stopCollider;
     // Start is called before the first frame update
     private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        stopCollider = GetComponent<Collider2D>();  // Obtener el Collider2D de la señal de stop
+        stopCollider.enabled = true;  // Asegurarse de que el collider esté habilitado
     }
 
     // Update is called once per frame
     void Update()
-    {
-        /*OnTriggerEnter2D (); 
-        if (touched == true)
+    {    
+        if (stopped && Input.GetMouseButtonDown(0)) 
         {
-            PlayerMovement.Instance.Stopspeed();
-            timerstoptime += Time.deltaTime;
-            if (timerstoptime > stopTime)
-            {
-                PlayerMovement.Instance.ResumeSpeed();
-                touched = false;
-                timerstoptime = 0; 
-                
-            }
-
+            ReanudeMove();
         }
-        */
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        /*if (collision.CompareTag("Player")) 
+        if (other.CompareTag("Player"))
         {
-            PlayerMovement.Instance.StopSpeed();
-            touched = true;
+            Debug.Log("WAIT, then Click");
+            playerMovement.enabled = false;  // Detiene el movimiento del jugador
+            stopped = true;  // Marca que el jugador está detenido
+            stopCollider.enabled = true;
         }
-        */
+
+    }
+
+    private void ReanudeMove()
+    {
+        if (stopped) 
+        {
+            playerMovement.enabled = true;
+            stopped = false;
+            stopCollider.enabled = false;
+        }
     }
 
 }
