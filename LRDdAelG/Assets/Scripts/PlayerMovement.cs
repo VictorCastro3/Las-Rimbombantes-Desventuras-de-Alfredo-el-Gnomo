@@ -96,25 +96,4 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Cambia dirección");
         }
     }
-
-    private void stopmove()
-    {
-        speed = 0;
-    }
-
-    private void stopsign()
-    {
-        stopmove();
-        if (touched & Input.GetKey(KeyCode.Mouse0))
-        {
-            touched = false;
-            moving();
-        }
-    }
-    
-    private void moving()
-    {
-        speed = 1; 
-    }
-
 }
