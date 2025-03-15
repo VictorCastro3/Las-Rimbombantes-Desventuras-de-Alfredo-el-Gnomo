@@ -30,6 +30,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private GameObject draggedObject;
     private Vector3Int lastValidCell;
     private bool isValidPlacement = false;
+    bool firstTime = true;
 
     #endregion
 
@@ -41,11 +42,16 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     #region Métodos públicos
     public void OnBeginDrag(PointerEventData eventData)
     {
-        draggedObject = Instantiate(prefab);
-        draggedObject.transform.position = GetSnappedWorldPosition();
-        draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
+        if (firstTime)
+        {
+            draggedObject = Instantiate(prefab);
+            draggedObject.transform.position = GetSnappedWorldPosition();
+            draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
 
-        SetObjectActiveState(draggedObject, false);
+            SetObjectActiveState(draggedObject, false);
+            firstTime = false;
+        }
+
     }
 
     public void OnDrag(PointerEventData eventData)
