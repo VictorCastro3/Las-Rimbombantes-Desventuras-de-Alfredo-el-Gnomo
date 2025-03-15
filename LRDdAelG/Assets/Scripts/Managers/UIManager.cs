@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject ChooseObj;
     [SerializeField]
+    private GameObject Inventory;
+    [SerializeField]
     private ItemBox[] itemBoxes;
     [SerializeField]
     private Image itemBoxImage;
@@ -32,6 +34,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Inventory.SetActive(false);
         itemBoxes[0].UpdateSprite();
         //GameManager.Instance.GiveUI(gameObject);
     }
@@ -47,7 +50,9 @@ public class UIManager : MonoBehaviour
     }
     private void EndChoose()
     {
+        Inventory.SetActive(true);
         ChooseObj.SetActive(false);
+       
     }
     public void Top()
     {
