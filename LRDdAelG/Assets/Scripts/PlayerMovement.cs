@@ -87,11 +87,6 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(upVector * launchForce, ForceMode2D.Impulse);
     }
 
-    public bool CanPlayerMove(bool canPlayerMove)
-    {
-        canMove = canPlayerMove;
-        return canMove;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -100,5 +95,25 @@ public class PlayerMovement : MonoBehaviour
             changeDirection();
             Debug.Log("Cambia dirección");
         }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        StopSign stopSign = collision.GetComponent<StopSign>();
+        if (collision != null && stopSign != null && stopSign.IsActive())
+        {
+            canMove =false;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        StopSign stopSign = collision.GetComponent<StopSign>();
+        if (collision != null && stopSign != null)
+        {
+            canMove =true;
+        }
+    }
+    public void NowCanMove()
+    {
+        canMove = true;
     }
 }
