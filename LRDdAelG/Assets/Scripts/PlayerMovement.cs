@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
             canMove =false;
         }
     }
-        private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         StopSign stopSign = collision.GetComponent<StopSign>();
         if (collision != null && stopSign != null)
