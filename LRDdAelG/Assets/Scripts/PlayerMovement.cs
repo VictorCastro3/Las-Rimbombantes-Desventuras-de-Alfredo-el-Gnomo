@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float launchForce= 7f;    
 
     private GameObject child;
-    private Collider2D groundCheck;
     private Animator animator;
 
     private Rigidbody2D rb;
@@ -26,8 +25,6 @@ public class PlayerMovement : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         child = gameObject.transform.GetChild(0).gameObject;
         animator = child.GetComponent<Animator>();
-        child = gameObject.transform.GetChild(2).gameObject;
-        groundCheck = child.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -38,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
             gameObject.transform.position += new Vector3(speed * Time.deltaTime * direction, 0, 0);
         }
         animator.SetBool("isWalking", canMove);
+        animator.SetBool("isAir", rb.velocity.y != 0);
     }
     public void changeDirection()
     {
