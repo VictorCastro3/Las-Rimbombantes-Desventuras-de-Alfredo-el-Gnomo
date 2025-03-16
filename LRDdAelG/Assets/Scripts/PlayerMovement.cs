@@ -10,12 +10,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float bumperX = 5f;
     [SerializeField] float fanY = 1.25f;
     [SerializeField] float fanX = 1.25f;
-    [SerializeField] float launchForce= 7f;
-    
+    [SerializeField] float launchForce = 7f;
+
     private bool respawnTiming = false;
     private float timer = 0f;
     private GameObject child;
     private Animator animator;
+    [SerializeField]
+    private Deaths d;
 
     private Rigidbody2D rb;
     private int direction = 1;
@@ -27,11 +29,13 @@ public class PlayerMovement : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         child = gameObject.transform.GetChild(0).gameObject;
         animator = child.GetComponent<Animator>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        d = FindObjectOfType<Deaths>();
         if (respawnTiming)
         {
             canMove = false;
@@ -140,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Die()
     {
+        d.DeathSound();
         animator.SetBool("defeated", true);
         respawnTiming = true;
         canMove = false;
