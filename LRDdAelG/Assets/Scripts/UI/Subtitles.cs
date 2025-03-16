@@ -55,7 +55,7 @@ public class Subtitles : MonoBehaviour
             }
             else
             {
-                deathSub = rnd.Next(1, 4);
+                deathSub = rnd.Next(1, 2);
                 if (deathSub == 1 && !chosen1)
                 {
                     PlayAudioClip(1);
@@ -67,12 +67,6 @@ public class Subtitles : MonoBehaviour
                     /*PlayAudioClip(2);
                     SetSubtitleText("Cu�ntas veces vas a fallar este nivel, Alcornoque?");
                     chosen2 = true;*/
-                }
-                else if (deathSub == 3 && !chosen3)
-                {
-                    /*PlayAudioClip(3);
-                    SetSubtitleText("Ramas y centauros");
-                    chosen3 = true;*/
                 }
             }
         }
