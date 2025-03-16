@@ -980,6 +980,10 @@ PrefabInstance:
       propertyPath: Bumper
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4301049243640638802, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c2e46b2ed460544485cb563ea2031bd, type: 3}
     - target: {fileID: 4407853245768079738, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
       propertyPath: tilemap
       value: 
