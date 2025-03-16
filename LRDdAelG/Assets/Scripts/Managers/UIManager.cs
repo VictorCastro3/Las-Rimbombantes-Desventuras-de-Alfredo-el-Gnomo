@@ -31,7 +31,8 @@ public class UIManager : MonoBehaviour
     private bool toptop = false;
     [SerializeField]
     private bool bottombottom = false;
-
+    [SerializeField]
+    private int level = 0;
 
     private bool firstTime = true;
 
@@ -149,7 +150,19 @@ public class UIManager : MonoBehaviour
     }
     public void RevertToChoose()
     {
-        Inventory.SetActive(false);
+        if (level == 1)
+        {
+            SceneManager.LoadScene("LEVEL 1");
+        }
+        else if(level == 2)
+        {
+            SceneManager.LoadScene("LEVEL 2");
+        }
+        else if (level == 3)
+        {
+            SceneManager.LoadScene("LEVEL 3");
+        }
+        /*Inventory.SetActive(false);
         ChooseObj.SetActive(true);
         for(int i = 0; i < itemBoxes.Length; i++)
         {
@@ -166,7 +179,7 @@ public class UIManager : MonoBehaviour
         if (player != null)
         {
             player.Restart();
-        }
+        }*/
         
     }
    

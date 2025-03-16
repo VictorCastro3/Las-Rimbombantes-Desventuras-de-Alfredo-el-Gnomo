@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
     public void Restart()
-    {
+    {   
             respawnTiming = false;
             timer = 0f;
             GameManager.Instance.RespawnPlayer();
