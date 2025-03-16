@@ -61,12 +61,12 @@ public class UIManager : MonoBehaviour
     }
     public void Top()
     {
-        if(itemBoxes[1].IsActive()) top = true;
+        if(itemBoxes[1].IsActive()&&!bottom) top = true;
 
     }
     public void Bottom()
     {
-        if (itemBoxes[2].IsActive()) bottom = true;
+        if (itemBoxes[2].IsActive()&&!top) bottom = true;
     }
     public void Last()
     {

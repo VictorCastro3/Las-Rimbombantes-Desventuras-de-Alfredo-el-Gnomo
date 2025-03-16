@@ -226,6 +226,8 @@ MonoBehaviour:
   fanY: 2.75
   fanX: 1.25
   launchForce: 9
+  particlesystem: {fileID: 6516069726106331507}
+  d: {fileID: 0}
 --- !u!1 &7818112078753318311
 GameObject:
   m_ObjectHideFlags: 0
