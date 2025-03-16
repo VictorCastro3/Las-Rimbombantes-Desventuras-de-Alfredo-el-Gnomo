@@ -26,11 +26,11 @@ public class ChangeScene : MonoBehaviour
 
     public void NextScene(int currentScene)
     {
-        if (currentScene < 3)
+        if (currentScene < 5)
         {
             currentScene++;
         }
-        else if (currentScene >= 3)
+        else if (currentScene >= 5)
         {
             currentScene = 1;
         }
