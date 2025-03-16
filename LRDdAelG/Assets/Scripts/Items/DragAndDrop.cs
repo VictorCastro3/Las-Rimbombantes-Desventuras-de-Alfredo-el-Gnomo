@@ -64,11 +64,13 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         if (firstTime)
         {
             draggedObject = Instantiate(prefab);
+            draggedObject.tag = "Custom";
         }
         draggedObject.transform.position = GetSnappedWorldPosition();
         draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
 
         SetObjectActiveState(draggedObject, false);
+        
     }
 
     public void OnDrag(PointerEventData eventData)

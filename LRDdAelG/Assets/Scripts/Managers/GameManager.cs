@@ -26,8 +26,6 @@ public class GameManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
             sub=FindObjectOfType<Subtitles>();
-           
-            
         } // if-else somos instancia nueva o no.
     }
 
@@ -109,7 +107,11 @@ public class GameManager : MonoBehaviour
         {
             turnSign.Reactivate();
         }
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Custom");
+        foreach (GameObject ground in groundObjects)
+        {
+            Destroy(ground);
+        }
         sub.PlayLine(true);
-        
     }
 }
