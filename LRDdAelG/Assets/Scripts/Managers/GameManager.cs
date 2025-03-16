@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -46,6 +47,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (Instance == null) Debug.Log("LA INSTANCIA\nES FUCKING NULLLLLL");
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+           
+                SceneManager.LoadScene("MENU");
+            
+        }
     }
     #endregion
     public static GameManager Instance
