@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/Scenes/LevelS/Men\xFA.unity"
+    path: Assets/Scenes/LevelS/MENU.unity
     guid: 5198f826e41d1cb43aa406266afd9f6e
   - enabled: 1
     path: Assets/Scenes/LevelS/LEVEL 1.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelS/END.unity
     guid: 840ff38da1b85ac44aafa9ec69238930
+  - enabled: 1
+    path: Assets/Scenes/LevelS/CREDITS.unity
+    guid: 200a2cf7dce05f54eb21f530c552196a
   m_configObjects: {}
