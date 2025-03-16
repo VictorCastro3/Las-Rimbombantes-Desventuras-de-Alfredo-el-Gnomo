@@ -14,10 +14,16 @@ public class Cannon : MonoBehaviour
     private bool restartTimer = false;
     private float timer = 0f;
     public ParticleSystem particlesystem;
+    public ParticleSystem playersystem;
 
     private void Start()
     {
         particlesystem.Stop();
+        playersystem = GameManager.Instance.GetPlayerParticleSystem();
+        if (playersystem == null)
+        {
+            Debug.LogError("No se pudo asignar el sistema de partículas del jugador.");
+        }
     }
     void Update()
     {
@@ -49,6 +55,7 @@ public class Cannon : MonoBehaviour
         playerMovement = other.GetComponent<PlayerMovement>();
         if (playerMovement != null)
         {
+            playersystem.Stop();
             Debug.Log("PLAYER-11!!!!");
             playerMovement.enabled = false;
             other.transform.Find("GNOMO").gameObject.SetActive(false);
@@ -85,6 +92,7 @@ public class Cannon : MonoBehaviour
     {
         if (playerMovement != null)
         {
+            playersystem.Play();
             playerMovement.enabled = true;
             playerMovement.gameObject.transform.Find("GNOMO").gameObject.SetActive(true);
             playerMovement.GetComponent<Rigidbody2D>().gravityScale = 1;

@@ -5140,6 +5140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 135
   particlesystem: {fileID: 4670604833996298682}
+  playersystem: {fileID: 0}
 --- !u!1 &7614975442404049128
 GameObject:
   m_ObjectHideFlags: 0

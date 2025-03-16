@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.ParticleSystem;
+using UnityEngine.SceneManagement;
 
 
 public class UIManager : MonoBehaviour
@@ -43,6 +44,10 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+   public void LoadScene (string sceneName)
+    {
+        SceneManager.LoadScene (sceneName);
     }
     public void ChooseItem()
     {
