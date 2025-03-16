@@ -26,8 +26,13 @@ public class HarmObj : MonoBehaviour
             }
             else if (collision.gameObject.GetComponent<PlayerMovement>())
             {
-                //Método para dañar jugador
-                Destroy(gameObject);
+                        if(collision != null)
+        {
+            if (collision.gameObject.GetComponent<PlayerMovement>())
+            {
+                collision.gameObject.GetComponent<PlayerMovement>().Die();
+            }
+        }
             }
         }
        
