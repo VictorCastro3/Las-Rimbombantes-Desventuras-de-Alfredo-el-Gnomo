@@ -7,6 +7,11 @@ using UnityEngine;
 public class TurnSign : MonoBehaviour
 {
     private bool turn = false;
+    private Animator animator; 
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         PlayerMovement player = GameManager.Instance.GetPlayer().GetComponent<PlayerMovement>();
@@ -14,6 +19,10 @@ public class TurnSign : MonoBehaviour
         {
             player.changeDirection();
         }
-        turn = !turn;
+    }
+    public void Deactivated()
+    {
+        turn = true;
+        animator.SetInteger("state", 1);
     }
 }
