@@ -129,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision != null && stopSign != null && stopSign.IsActive())
         {
             canMove =false;
+            particlesystem.Stop();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -142,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
     public void NowCanMove()
     {
         canMove = true;
+        particlesystem.Play();
     }
     public void Die()
     {
