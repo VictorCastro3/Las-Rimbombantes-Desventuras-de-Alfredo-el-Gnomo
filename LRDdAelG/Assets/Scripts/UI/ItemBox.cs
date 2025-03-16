@@ -9,6 +9,8 @@ public class ItemBox : MonoBehaviour
     [SerializeField]
     private GameObject item;
     [SerializeField]
+    private GameObject itemImg;
+    [SerializeField]
     private UIManager ui; // The UIManager component
     [SerializeField]
     private Image BoxImage; // The box image
@@ -16,16 +18,26 @@ public class ItemBox : MonoBehaviour
     private Sprite[] ItemBoxSprites; // The item box sprites
     [SerializeField]
     private bool active = false;
+    [SerializeField]
+    private bool inventory = false;
     // Start is called before the first frame update
     void Start()
     {
         ui=FindObjectOfType<UIManager>();
+        if (!active)
+        {
+            itemImg.SetActive(false);
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (inventory)
+        {
+            SetItemImage();
+        }
     }
     public void Active(bool act)
     {
@@ -40,10 +52,14 @@ public class ItemBox : MonoBehaviour
         if (active)
         {
             BoxImage.sprite = ItemBoxSprites[1];
+            itemImg.SetActive(true);
+            
+            //gameObject.transform.Find("GNOMO").gameObject.SetActive(true);
         }
         if (revert)
         {
             BoxImage.sprite = ItemBoxSprites[0];
+            itemImg.SetActive(false);
         }
        
     }
@@ -73,5 +89,9 @@ public class ItemBox : MonoBehaviour
                 parentObject.SetActive(false);
             }
         }      
+    }
+    public void SetItemImage()
+    {
+
     }
 }

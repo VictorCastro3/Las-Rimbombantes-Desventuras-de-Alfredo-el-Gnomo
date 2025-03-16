@@ -16,14 +16,13 @@ public class Subtitles : MonoBehaviour
     private bool end = false;
     [SerializeField]
     private int deathSub = 0;
-    [SerializeField]
-    private float humTime = 15f;
+   
 
     private bool chosen1 = false;
     private bool chosen2 = false;
     private bool chosen3 = false;
     private bool chosen4 = false;
-    private float time = 0f;
+   
 
     private System.Random rnd = new System.Random();
     private AudioSource audioSource;
@@ -35,15 +34,7 @@ public class Subtitles : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        time += Time.deltaTime;
-        if (time >= humTime)
-        {
-            int hum = rnd.Next(1, 11);
-
-        }
-    }
+   
     public void PlayLine(bool death)
     {
         if (Lv1)
