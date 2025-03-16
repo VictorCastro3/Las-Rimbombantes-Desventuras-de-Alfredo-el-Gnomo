@@ -46,11 +46,11 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         timer = 0;
         image = GetComponent<Image>();
     }
-    
+
     void Update()
     {
         timer -= Time.deltaTime;
-        if(timer >= 0) image.color = new Color(0.5f, 0.5f, 0.5f, 1);
+        if (timer >= 0) image.color = new Color(0.5f, 0.5f, 0.5f, 1);
         else image.color = new Color(1, 1, 1, 1);
 
     }
@@ -60,25 +60,20 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     #region Métodos públicos
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(timer <= 0)
+        if (timer > 0) return;
+        if (firstTime)
         {
-            if (firstTime)
-            {
-                draggedObject = Instantiate(prefab);
-                timer = cooldown;
-            }
-            draggedObject.transform.position = GetSnappedWorldPosition();
-            draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
-
-            SetObjectActiveState(draggedObject, false);
+            draggedObject = Instantiate(prefab);
         }
+        draggedObject.transform.position = GetSnappedWorldPosition();
+        draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
 
-
+        SetObjectActiveState(draggedObject, false);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if(timer <= 0)
+        if (timer <= 0)
         {
             if (draggedObject == null) return;
             Vector3 position = GetSnappedWorldPosition();
@@ -89,7 +84,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (draggedObject == null) return;
+        if (draggedObject == null || timer > 0) return;
 
         Vector3 finalPosition = GetSnappedWorldPosition();
         if (isValidPlacement)
@@ -97,13 +92,13 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             draggedObject.transform.position = finalPosition;
             SetObjectActiveState(draggedObject, true);
             firstTime = false;
+            timer = cooldown;
         }
         else
         {
             Destroy(draggedObject);
             firstTime = true;
         }
-        timer = cooldown;
     }
 
     #endregion
