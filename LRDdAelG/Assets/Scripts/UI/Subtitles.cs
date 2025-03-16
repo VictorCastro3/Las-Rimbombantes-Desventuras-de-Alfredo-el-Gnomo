@@ -34,10 +34,14 @@ public class Subtitles : MonoBehaviour
     {
         ui= FindObjectOfType<UIManager>();  
         audioSource = gameObject.AddComponent<AudioSource>();
-        if (ui.PlayFirst())
+        if (!end)
         {
-            PlayLine(false);
+            if (ui.PlayFirst())
+            {
+                PlayLine(false);
+            }
         }
+       
        
        
     }
@@ -148,7 +152,7 @@ public class Subtitles : MonoBehaviour
         else if (end)
         {
             PlayAudioClip(14);
-            SetSubtitleText("Tras finalmente conseguir la tarta definitiva, Alfredo se la come y experimenta un estado de placer gastron�mico que nunca se ha alcanzado y nunca se volver� a alcanzar. Despu�s, vuelve a casa y contin�a con su vida");
+            SetSubtitleText("Tras finalmente conseguir la tarta definitiva, Alfredo se la come y experimenta un estado de placer gastronómico que nunca se ha alcanzado y nunca se volverá a alcanzar. Después, vuelve a casa y continúa con su vida");
         }
     }
 

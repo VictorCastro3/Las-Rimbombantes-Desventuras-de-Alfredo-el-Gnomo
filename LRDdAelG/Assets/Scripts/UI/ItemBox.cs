@@ -37,7 +37,7 @@ public class ItemBox : MonoBehaviour
     [SerializeField]
     private bool Tramp = false;
     [SerializeField]
-    private bool Button = false;
+    private bool Block = false;
     [SerializeField]
     public GameObject itemBox;
 
@@ -134,7 +134,7 @@ public class ItemBox : MonoBehaviour
                         dragAndDrop.itemImage = ItemImages[7];
                         itemImage.sprite = ItemImages[7];
                     }
-                    else if (Button)
+                    else if (Block)
                     {
                         dragAndDrop.itemImage = ItemImages[8];
                         itemImage.sprite = ItemImages[8];
