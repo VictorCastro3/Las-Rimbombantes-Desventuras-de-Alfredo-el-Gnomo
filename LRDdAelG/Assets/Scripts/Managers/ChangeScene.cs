@@ -7,33 +7,39 @@ public class ChangeScene : MonoBehaviour
 {
     [SerializeField]
     private int levelToLoad = 0;
+
+    private PlayerMovement playerMovement;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collision collision)
     {
-        if(collision.gameObject.GetComponent<PlayerMovement>() != null)
+        playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
+        if (playerMovement != null)
         {
-            if (levelToLoad == 2)
+            if (collision.gameObject.GetComponent<PlayerMovement>() != null)
             {
-                SceneManager.LoadScene("LEVEL 2");
-            }
-            else if(levelToLoad == 3)
-            {
-                SceneManager.LoadScene("LEVEL 3");
-            }
-            else if (levelToLoad == 4)
-            {
-                SceneManager.LoadScene("END");
+                if (levelToLoad == 2)
+                {
+                    SceneManager.LoadScene("LEVEL 2");
+                }
+                else if (levelToLoad == 3)
+                {
+                    SceneManager.LoadScene("LEVEL 3");
+                }
+                else if (levelToLoad == 4)
+                {
+                    SceneManager.LoadScene("END");
+                }
             }
         }
     }
