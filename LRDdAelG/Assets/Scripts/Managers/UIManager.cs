@@ -162,7 +162,11 @@ public class UIManager : MonoBehaviour
         {
             dd[i].prefab = null;
         }
-        
+        PlayerMovement player = GameManager.Instance.GetPlayer().GetComponent<PlayerMovement>();
+        if (player != null)
+        {
+            player.Restart();
+        }
         
     }
    
