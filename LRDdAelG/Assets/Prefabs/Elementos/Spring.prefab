@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75225db4d2c309440825ada5dc3fec03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  springSound: {fileID: 8300000, guid: 40c2fb9378dbabf4091c4b77a66b1d0a, type: 3}
 --- !u!95 &2961997298378697766
 Animator:
   serializedVersion: 5

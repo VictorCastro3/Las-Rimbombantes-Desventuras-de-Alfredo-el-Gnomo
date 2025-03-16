@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Spring : MonoBehaviour
 {
+
+    public AudioClip springSound;
+    private AudioSource audioSource;
     private Animator animator; 
     void Awake()
     {
@@ -15,6 +18,8 @@ public class Spring : MonoBehaviour
         {
             player.JumpSpring();
             animator.SetTrigger("activated");
+            //audioSource = GetComponent<AudioSource>();
+            //audioSource.PlayOneShot(springSound);
         }
     }
 }
