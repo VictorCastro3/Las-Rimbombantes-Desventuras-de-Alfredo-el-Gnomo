@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    [SerializeField]
-    private int levelToLoad = 0;
-
     private PlayerMovement playerMovement;
     // Start is called before the first frame update
     void Start()
@@ -21,26 +18,22 @@ public class ChangeScene : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
-        if (playerMovement != null)
+       NextScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void NextScene(int currentScene)
+    {
+        if (currentScene < 5)
         {
-            if (collision.gameObject.GetComponent<PlayerMovement>() != null)
-            {
-                if (levelToLoad == 2)
-                {
-                    SceneManager.LoadScene("LEVEL 2");
-                }
-                else if (levelToLoad == 3)
-                {
-                    SceneManager.LoadScene("LEVEL 3");
-                }
-                else if (levelToLoad == 4)
-                {
-                    SceneManager.LoadScene("END");
-                }
-            }
+            currentScene++;
         }
+        else if (currentScene >= 5)
+        {
+            currentScene = 1;
+        }
+        SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
     }
 }
