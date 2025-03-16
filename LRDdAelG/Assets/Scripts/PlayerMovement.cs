@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("defeated", false);
                 canMove = true;
                 direction = 1;
-                gameObject.transform.rotation *= Quaternion.Euler(0, 180, 0);
+                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
             }
         }
         if (speed > 0 && canMove)
