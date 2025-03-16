@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class MenuManager : MonoBehaviour
+public class CONTROL : MonoBehaviour
 {
-    public void LoadLevel1()
+    public void LoadMenu()
     {
-        SceneManager.LoadScene("LEVEL 1");
+        SceneManager.LoadScene("MENU");
     }
     public void Exit()
     {
