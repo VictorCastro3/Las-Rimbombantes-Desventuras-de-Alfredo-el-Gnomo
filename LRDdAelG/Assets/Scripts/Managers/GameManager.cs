@@ -106,10 +106,10 @@ public class GameManager : MonoBehaviour
         {
             turnSign.Reactivate();
         }
-        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Custom");
-        foreach (GameObject ground in groundObjects)
+        GameObject[] customObjects = GameObject.FindGameObjectsWithTag("Custom");
+        foreach (GameObject custom in customObjects)
         {
-            Destroy(ground);
+            custom.transform.position = new Vector3(-32, -32, -423);
         }
         sub.PlayLine(true);
     }
