@@ -6,6 +6,7 @@ public class Subtitles : MonoBehaviour
 {
     [SerializeField] private AudioClip[] audioClips;
     [SerializeField] private Text sub;
+    [SerializeField] private UIManager ui;
     [SerializeField]
     private bool Lv1 = false;
     [SerializeField]
@@ -22,18 +23,26 @@ public class Subtitles : MonoBehaviour
     private bool chosen2 = false;
     private bool chosen3 = false;
     private bool chosen4 = false;
+    private bool first = true;
    
+
 
     private System.Random rnd = new System.Random();
     private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        ui= FindObjectOfType<UIManager>();  
         audioSource = gameObject.AddComponent<AudioSource>();
-        PlayLine(false);
+        if (ui.PlayFirst())
+        {
+            PlayLine(false);
+        }
+       
+       
     }
 
-    // Update is called once per frame
+  
    
     public void PlayLine(bool death)
     {

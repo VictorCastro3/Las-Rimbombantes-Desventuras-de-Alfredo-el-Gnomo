@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private ItemBox[] itemBoxes;
     [SerializeField]
+    private Subtitles sub;
+    [SerializeField]
     private Image itemBoxImage;
     [SerializeField]
     private bool top = false;
@@ -29,7 +31,9 @@ public class UIManager : MonoBehaviour
     private bool toptop = false;
     [SerializeField]
     private bool bottombottom = false;
-    
+
+
+    private bool firstTime = true;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +41,7 @@ public class UIManager : MonoBehaviour
         Inventory.SetActive(false);
         ChooseObj.SetActive(true);
         itemBoxes[0].UpdateSprite(false);
+        sub=GetComponent<Subtitles>();
         //GameManager.Instance.GiveUI(gameObject);
     }
 
@@ -57,7 +62,11 @@ public class UIManager : MonoBehaviour
     {
         Inventory.SetActive(true);
         ChooseObj.SetActive(false);
-       
+        firstTime = false;
+    }
+    public bool PlayFirst()
+    {
+        return firstTime;
     }
     public void Top()
     {
