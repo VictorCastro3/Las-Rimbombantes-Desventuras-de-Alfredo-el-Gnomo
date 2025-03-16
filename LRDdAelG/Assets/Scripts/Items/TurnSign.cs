@@ -25,26 +25,26 @@ public class TurnSign : MonoBehaviour
             }
         }
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        PlayerMovement player = GameManager.Instance.GetPlayer().GetComponent<PlayerMovement>();
-        if (player != null && !turn && !activatetime)
-        {
-            player.changeDirection();
-            activatetime = true;
-        }
-        {
-            player.changeDirection();
-        }
-    }
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     PlayerMovement player = GameManager.Instance.GetPlayer().GetComponent<PlayerMovement>();
+    //     if (player != null && !turn && !activatetime)
+    //     {
+    //         player.changeDirection();
+    //         activatetime = true;
+    //     }
+    //     {
+    //         player.changeDirection();
+    //     }
+    // }
     public void Deactivated()
     {
-        turn = true;
+        this.tag = "Untagged";
         animator.SetInteger("state", 1);
     }
     public void Reactivate()
     {
-        turn = false;
+        this.tag = "Ground";
         animator.SetInteger("state", 0);
     }
 }
