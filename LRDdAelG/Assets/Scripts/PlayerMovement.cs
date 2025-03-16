@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.Instance.RespawnPlayer();
                 animator.SetBool("defeated", false);
                 canMove = true;
+                direction *= 1;
             }
         }
         if (speed > 0 && canMove)

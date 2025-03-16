@@ -95,5 +95,10 @@ public class GameManager : MonoBehaviour
         {
             turnSign.Reactivate();
         }
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Custom");
+        foreach (GameObject ground in groundObjects)
+        {
+            Destroy(ground);
+        }
     }
 }
