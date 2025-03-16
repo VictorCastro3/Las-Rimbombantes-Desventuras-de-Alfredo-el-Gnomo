@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: springJump
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4382356081777200415, guid: d249c81aafe854e49ae701de3ef218bf, type: 3}
+      propertyPath: particlesystem
+      value: 
+      objectReference: {fileID: 1979138952}
     - target: {fileID: 7084155467470958803, guid: d249c81aafe854e49ae701de3ef218bf, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1476,7 +1480,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1145762792233836215, guid: 91aee538db13e544dad45355887c2951, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.49
+      value: -3.18
       objectReference: {fileID: 0}
     - target: {fileID: 1145762792233836215, guid: 91aee538db13e544dad45355887c2951, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1709,6 +1713,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1979138952 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6516069726106331507, guid: d249c81aafe854e49ae701de3ef218bf, type: 3}
+  m_PrefabInstance: {fileID: 30352792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2112194692
 GameObject:
   m_ObjectHideFlags: 0
