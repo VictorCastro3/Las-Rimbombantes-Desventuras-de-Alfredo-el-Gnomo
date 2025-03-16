@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private GameObject Player;
     private GameObject uimanager;
-    [SerializeField]
     private Subtitles sub;
     #endregion
 
