@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("defeated", false);
                 canMove = true;
                 direction *= 1;
+                gameObject.transform.rotation *= Quaternion.Euler(0, 180, 0);
             }
         }
         if (speed > 0 && canMove)
@@ -151,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("defeated", true);
         respawnTiming = true;
         canMove = false;
+
     }
     public void Restart()
     {
@@ -160,5 +162,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("defeated", false);
             canMove = true;
             direction *= 1;
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
     }
 }
