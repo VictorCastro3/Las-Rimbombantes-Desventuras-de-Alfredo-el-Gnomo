@@ -65,6 +65,16 @@ public class GameManager : MonoBehaviour
     {
         Player = player;
     }
+    public ParticleSystem GetPlayerParticleSystem()
+    {
+        if (Player != null)
+        {
+            return Player.GetComponent<PlayerMovement>()?.particlesystem;
+        }
+        Debug.LogWarning("Player no está asignado o no tiene el componente PlayerMovement.");
+        return null;
+    }
+
 
     public GameObject GetPlayer()
     {

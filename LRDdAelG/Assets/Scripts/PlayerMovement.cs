@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float fanY = 1.25f;
     [SerializeField] float fanX = 1.25f;
     [SerializeField] float launchForce = 7f;
+    public ParticleSystem particlesystem;
 
     private bool respawnTiming = false;
     private float timer = 0f;
