@@ -11,7 +11,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float fanY = 1.25f;
     [SerializeField] float fanX = 1.25f;
     [SerializeField] float launchForce= 7f;    
-    
+
+    private GameObject child;
+    private Collider2D groundCheck;
+    private Animator animator;
 
     private Rigidbody2D rb;
     private int direction = 1;
@@ -21,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     {
         GameManager.Instance.GivePlayer(gameObject);
         rb = gameObject.GetComponent<Rigidbody2D>();
+        child = gameObject.transform.GetChild(0).gameObject;
+        animator = child.GetComponent<Animator>();
+        child = gameObject.transform.GetChild(2).gameObject;
+        groundCheck = child.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -30,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.transform.position += new Vector3(speed * Time.deltaTime * direction, 0, 0);
         }
+        animator.SetBool("isWalking", canMove);
     }
     public void changeDirection()
     {
