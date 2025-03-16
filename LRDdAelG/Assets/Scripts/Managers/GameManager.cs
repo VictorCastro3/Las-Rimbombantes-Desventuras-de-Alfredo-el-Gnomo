@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private GameObject Player;
     private GameObject uimanager;
+    [SerializeField]
+    private Subtitles sub;
     #endregion
 
     #region M�todos MonoBehaviour
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
+            sub=FindObjectOfType<Subtitles>();
+           
             
         } // if-else somos instancia nueva o no.
     }
@@ -95,5 +99,7 @@ public class GameManager : MonoBehaviour
         {
             turnSign.Reactivate();
         }
+        sub.PlayLine(true);
+        
     }
 }

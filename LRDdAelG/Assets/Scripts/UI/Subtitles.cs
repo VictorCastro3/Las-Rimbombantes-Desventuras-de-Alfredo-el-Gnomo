@@ -55,9 +55,9 @@ public class Subtitles : MonoBehaviour
                 }
                 else if (deathSub == 2 && !chosen2)
                 {
-                    PlayAudioClip(2);
+                    /*PlayAudioClip(2);
                     SetSubtitleText("Cuántas veces vas a fallar este nivel, Alcornoque?");
-                    chosen2 = true;
+                    chosen2 = true;*/
                 }
                 else if (deathSub == 3 && !chosen3)
                 {
