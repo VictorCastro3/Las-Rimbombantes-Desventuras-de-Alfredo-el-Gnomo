@@ -7,6 +7,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 // Añadir aquí el resto de directivas using
 
 
@@ -19,6 +20,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     // ---- ATRIBUTOS DEL INSPECTOR ----
     #region Atributos del Inspector (serialized fields)
     public GameObject prefab;
+    public Sprite itemImage;
     [SerializeField] Tilemap tilemap; //tilemap
     [SerializeField] Vector2Int objectSize = new Vector2Int(1, 1);
 

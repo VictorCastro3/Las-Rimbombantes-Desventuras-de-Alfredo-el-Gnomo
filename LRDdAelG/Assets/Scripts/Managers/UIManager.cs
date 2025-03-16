@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     private bool toptop = false;
     [SerializeField]
     private bool bottombottom = false;
+    
 
     // Start is called before the first frame update
     void Start()
