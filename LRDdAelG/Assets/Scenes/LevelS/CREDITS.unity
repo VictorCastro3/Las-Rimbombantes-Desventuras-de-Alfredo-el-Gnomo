@@ -557,14 +557,14 @@ RectTransform:
   m_GameObject: {fileID: 1765397166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.97878, y: 0.97878, z: 0.97878}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1888608553}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.1462, y: 8}
+  m_AnchoredPosition: {x: 3, y: 104}
   m_SizeDelta: {x: 1936.2925, y: 893.4541}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1765397168
@@ -589,7 +589,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 80
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -600,17 +600,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Creditos
-
-    
-
-    Programacion: Victor Alvarez, Victor Castro, Adrian,
-    Oscar Silva, Oscar Daniel, Ignacio
-
-    Arte: Victor Castro, Oscar Daniel
-
-    Voces:
-    Victor Alvarez '
+  m_Text: "Creditos\n\n\nProgramacion: Victor Alvarez, Victor Castro, Adrian, Oscar
+    Silva, Oscar Daniel, Ignacio\nArte: Victor Castro, Oscar Daniel\nVoces: Victor
+    Alvarez \n\nAssets: https://github.com/Marsgames/Marsgames/blob/main/Assets/Unity/CartoonExplosion/SmokeCloud.png\nSonido:
+    https://www.myinstants.com/es/index/es/"
 --- !u!222 &1765397169
 CanvasRenderer:
   m_ObjectHideFlags: 0

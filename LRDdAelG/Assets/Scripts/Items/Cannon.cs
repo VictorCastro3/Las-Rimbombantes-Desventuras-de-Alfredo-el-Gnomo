@@ -15,14 +15,15 @@ public class Cannon : MonoBehaviour
     private float timer = 0f;
     public ParticleSystem particlesystem;
     public ParticleSystem playersystem;
-
+    public AudioClip springSound;
+    private AudioSource audioSource;
     private void Start()
     {
         particlesystem.Stop();
         playersystem = GameManager.Instance.GetPlayerParticleSystem();
         if (playersystem == null)
         {
-            Debug.LogError("No se pudo asignar el sistema de partículas del jugador.");
+            Debug.LogError("No se pudo asignar el sistema de partï¿½culas del jugador.");
         }
     }
     void Update()
@@ -100,6 +101,8 @@ public class Cannon : MonoBehaviour
             isTriggered = false;
             isRotating = false;
             restartTimer = true;
+            //audioSource = GetComponent<AudioSource>();
+            //audioSource.PlayOneShot(springSound);
 
         }
     }
