@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.Instance.RespawnPlayer();
                 animator.SetBool("defeated", false);
                 canMove = true;
-                direction = 1;
+                direction = -1;
                 gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
             }
         }
@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
             GameManager.Instance.RespawnPlayer();
             animator.SetBool("defeated", false);
             canMove = true;
-            direction = 1;
+            direction = -1;
             gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
     }
 }
