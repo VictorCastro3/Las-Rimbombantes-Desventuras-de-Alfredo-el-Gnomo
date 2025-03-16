@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - StopSign
+  - Semisolid
   layers:
   - Default
   - TransparentFX

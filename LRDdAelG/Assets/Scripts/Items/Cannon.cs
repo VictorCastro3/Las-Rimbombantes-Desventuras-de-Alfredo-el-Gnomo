@@ -13,7 +13,12 @@ public class Cannon : MonoBehaviour
     private bool rotatingRight = true;
     private bool restartTimer = false;
     private float timer = 0f;
+    public ParticleSystem particlesystem;
 
+    private void Start()
+    {
+        particlesystem.Stop();
+    }
     void Update()
     {
         if (isRotating)
@@ -24,6 +29,7 @@ public class Cannon : MonoBehaviour
         if (isTriggered && Input.GetMouseButtonDown(0))
         {
             LaunchPlayer();
+            particlesystem.Play();
         }
         if (restartTimer)
         {

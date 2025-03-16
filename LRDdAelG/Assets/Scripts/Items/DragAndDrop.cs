@@ -4,6 +4,7 @@
 // ComJamon2025
 //---------------------------------------------------------
 
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
@@ -23,44 +24,68 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public Sprite itemImage;
     [SerializeField] Tilemap tilemap; //tilemap
     [SerializeField] Vector2Int objectSize = new Vector2Int(1, 1);
+    [SerializeField] float cooldown = 3;
 
     #endregion
 
     // ---- ATRIBUTOS PRIVADOS ----
     #region Atributos Privados (private fields)
     private GameObject draggedObject;
+    private Image image;
     private Vector3Int lastValidCell;
     private bool isValidPlacement = false;
-    bool firstTime = true;
+    private bool firstTime = true;
+    private float timer;
 
     #endregion
 
     // ---- MÉTODOS DE MONOBEHAVIOUR ----
     #region Métodos de MonoBehaviour
+    void Start()
+    {
+        timer = 0;
+        image = GetComponent<Image>();
+    }
+    
+    void Update()
+    {
+        timer -= Time.deltaTime;
+        if(timer >= 0) image.color = new Color(0.5f, 0.5f, 0.5f, 1);
+        else image.color = new Color(1, 1, 1, 1);
+
+    }
     #endregion
 
     // ---- MÉTODOS PÚBLICOS ----
     #region Métodos públicos
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (firstTime)
+        if(timer <= 0)
         {
-            draggedObject = Instantiate(prefab);
-        }
-        draggedObject.transform.position = GetSnappedWorldPosition();
-        draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
+            if (firstTime)
+            {
+                draggedObject = Instantiate(prefab);
+                timer = cooldown;
+            }
+            draggedObject.transform.position = GetSnappedWorldPosition();
+            draggedObject.transform.position = new Vector3(draggedObject.transform.position.x, draggedObject.transform.position.y, 0);
 
-        SetObjectActiveState(draggedObject, false);
+            SetObjectActiveState(draggedObject, false);
+        }
+
 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (draggedObject == null) return;
-        Vector3 position = GetSnappedWorldPosition();
-        draggedObject.transform.position = position;
+        if(timer <= 0)
+        {
+            if (draggedObject == null) return;
+            Vector3 position = GetSnappedWorldPosition();
+            draggedObject.transform.position = position;
 
-        isValidPlacement = CanPlaceObject(position, objectSize);
+            isValidPlacement = CanPlaceObject(position, objectSize);
+        }
     }
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -78,6 +103,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             Destroy(draggedObject);
             firstTime = true;
         }
+        timer = cooldown;
     }
 
     #endregion

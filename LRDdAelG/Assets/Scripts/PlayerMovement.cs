@@ -10,8 +10,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float bumperX = 5f;
     [SerializeField] float fanY = 1.25f;
     [SerializeField] float fanX = 1.25f;
-    [SerializeField] float launchForce= 7f;    
+    [SerializeField] float launchForce= 7f;
     
+    private GameObject child;
+    private Animator animator;
 
     private Rigidbody2D rb;
     private int direction = 1;
@@ -21,15 +23,20 @@ public class PlayerMovement : MonoBehaviour
     {
         GameManager.Instance.GivePlayer(gameObject);
         rb = gameObject.GetComponent<Rigidbody2D>();
+        child = gameObject.transform.GetChild(0).gameObject;
+        animator = child.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (speed > 0 && canMove)
         {
             gameObject.transform.position += new Vector3(speed * Time.deltaTime * direction, 0, 0);
         }
+        animator.SetBool("isWalking", canMove);
+        animator.SetBool("isAir", rb.velocity.y != 0);
     }
     public void changeDirection()
     {
