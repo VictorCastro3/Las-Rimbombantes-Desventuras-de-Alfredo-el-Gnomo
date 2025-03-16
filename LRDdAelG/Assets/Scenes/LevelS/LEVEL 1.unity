@@ -1052,7 +1052,7 @@ PrefabInstance:
     - target: {fileID: 1503489118977136213, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 80c11e68ddc25be468c993319ab19b90, type: 3}
+      objectReference: {fileID: 21300000, guid: 0089d84bc1f05ff448a62f15c160ac49, type: 3}
     - target: {fileID: 1685274424128517728, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1060,7 +1060,11 @@ PrefabInstance:
     - target: {fileID: 1746477532448368984, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 5505302621315339086, guid: e2e7819ca1816a34c8f16f560564a214, type: 3}
+      objectReference: {fileID: 651219207346416446, guid: 86eeccbc7774aea4c9372512a205df7b, type: 3}
+    - target: {fileID: 1746477532448368984, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
+      propertyPath: Cannon
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2934184572019049622, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
       propertyPath: Lv2
       value: 0
@@ -1085,6 +1089,10 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 2112194694}
+    - target: {fileID: 4665394533067389539, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 80c11e68ddc25be468c993319ab19b90, type: 3}
     - target: {fileID: 4926594122182887986, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1096,7 +1104,11 @@ PrefabInstance:
     - target: {fileID: 5042191376824526960, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 651219207346416446, guid: 86eeccbc7774aea4c9372512a205df7b, type: 3}
+      objectReference: {fileID: 5505302621315339086, guid: e2e7819ca1816a34c8f16f560564a214, type: 3}
+    - target: {fileID: 5042191376824526960, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
+      propertyPath: Bumper
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6017210852743902544, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
       propertyPath: m_Sprite
       value: 
