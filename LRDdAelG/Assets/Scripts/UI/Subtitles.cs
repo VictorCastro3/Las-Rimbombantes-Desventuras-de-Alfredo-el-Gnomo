@@ -51,7 +51,7 @@ public class Subtitles : MonoBehaviour
             if (!death)
             {
                 PlayAudioClip(0);
-                SetSubtitleText("Este es Alfredo el gnomo. Hay dos cosas que deberías saber de él. Primero, Alfredo es muy tonto. Segundo, le encanta la tarta. Su objetivo es conseguir la tarta definitiva");
+                SetSubtitleText("Este es Alfredo el gnomo. Hay dos cosas que deberï¿½as saber de ï¿½l. Primero, Alfredo es muy tonto. Segundo, le encanta la tarta. Su objetivo es conseguir la tarta definitiva");
             }
             else
             {
@@ -65,14 +65,14 @@ public class Subtitles : MonoBehaviour
                 else if (deathSub == 2 && !chosen2)
                 {
                     /*PlayAudioClip(2);
-                    SetSubtitleText("Cuántas veces vas a fallar este nivel, Alcornoque?");
+                    SetSubtitleText("Cuï¿½ntas veces vas a fallar este nivel, Alcornoque?");
                     chosen2 = true;*/
                 }
                 else if (deathSub == 3 && !chosen3)
                 {
-                    PlayAudioClip(3);
+                    /*PlayAudioClip(3);
                     SetSubtitleText("Ramas y centauros");
-                    chosen3 = true;
+                    chosen3 = true;*/
                 }
             }
         }
@@ -81,7 +81,7 @@ public class Subtitles : MonoBehaviour
             if (!death)
             {
                 PlayAudioClip(4);
-                SetSubtitleText("Hola Alfredo! Soy el búho protector de este bosque. Vengo a decirte que te vayas de mi maldito hogar, estás disturbando la paz");
+                SetSubtitleText("Hola Alfredo! Soy el bï¿½ho protector de este bosque. Vengo a decirte que te vayas de mi maldito hogar, estï¿½s disturbando la paz");
             }
             else
             {
@@ -89,25 +89,25 @@ public class Subtitles : MonoBehaviour
                 if (deathSub == 1 && !chosen1)
                 {
                     PlayAudioClip(5);
-                    SetSubtitleText("Tengo una ramada de árboles militares esperando al momento en el que salgas de aquí");
+                    SetSubtitleText("Tengo una ramada de ï¿½rboles militares esperando al momento en el que salgas de aquï¿½");
                     chosen1 = true;
                 }
                 else if (deathSub == 2 && !chosen2)
                 {
                     PlayAudioClip(6);
-                    SetSubtitleText("En un lugar de las ramas cuyo nombre no quiero recordar, vivió Don Alfredo y Sancho tarta");
+                    SetSubtitleText("En un lugar de las ramas cuyo nombre no quiero recordar, viviï¿½ Don Alfredo y Sancho tarta");
                     chosen2 = true;
                 }
                 else if (deathSub == 3 && !chosen3)
                 {
                     PlayAudioClip(7);
-                    SetSubtitleText("Hola, soy Plantonio Lorrama. ¿Quieres saber cuánto vale tu seta?");
+                    SetSubtitleText("Hola, soy Plantonio Lorrama. ï¿½Quieres saber cuï¿½nto vale tu seta?");
                     chosen3 = true;
                 }
                 else if (deathSub == 4 && !chosen4)
                 {
                     PlayAudioClip(8);
-                    SetSubtitleText("Tú tú tú………¿La casa de las ramas?");
+                    SetSubtitleText("Tï¿½ tï¿½ tï¿½ï¿½ï¿½ï¿½ï¿½La casa de las ramas?");
                     chosen4 = true;
                 }
             }
@@ -117,7 +117,7 @@ public class Subtitles : MonoBehaviour
             if (!death)
             {
                 PlayAudioClip(9);
-                SetSubtitleText("Has llegado tan lejos. Tras haberte pasado el gran número de 2 niveles, ¡Parece que Alfredo por fin divisa la tarta definitiva!");
+                SetSubtitleText("Has llegado tan lejos. Tras haberte pasado el gran nï¿½mero de 2 niveles, ï¿½Parece que Alfredo por fin divisa la tarta definitiva!");
             }
             else
             {
@@ -125,13 +125,13 @@ public class Subtitles : MonoBehaviour
                 if (deathSub == 1 && !chosen1)
                 {
                     PlayAudioClip(10);
-                    SetSubtitleText("A pesar de todos tus fallos, sigues intentando conseguir esta tarta. Se podría decir que tienes mucha determinación");
+                    SetSubtitleText("A pesar de todos tus fallos, sigues intentando conseguir esta tarta. Se podrï¿½a decir que tienes mucha determinaciï¿½n");
                     chosen1 = true;
                 }
                 else if (deathSub == 2 && !chosen2)
                 {
                     PlayAudioClip(11);
-                    SetSubtitleText("La solución no es tan difícil. Te estás llendo por las ramas");
+                    SetSubtitleText("La soluciï¿½n no es tan difï¿½cil. Te estï¿½s llendo por las ramas");
                     chosen2 = true;
                 }
                 else if (deathSub == 3 && !chosen3)
@@ -143,7 +143,7 @@ public class Subtitles : MonoBehaviour
                 else if (deathSub == 4 && !chosen4)
                 {
                     PlayAudioClip(13);
-                    SetSubtitleText("Espera un momento. ¿Es ese Facundo, la mascota de la asociación de la facultad de informática de la universidad complutense de Madrid LAG? ¡Es increíble! Si solo lo pudieras ver");
+                    SetSubtitleText("Espera un momento. ï¿½Es ese Facundo, la mascota de la asociaciï¿½n de la facultad de informï¿½tica de la universidad complutense de Madrid LAG? ï¿½Es increï¿½ble! Si solo lo pudieras ver");
                     chosen4 = true;
                 }
             }
@@ -154,7 +154,7 @@ public class Subtitles : MonoBehaviour
         else if (end)
         {
             PlayAudioClip(14);
-            SetSubtitleText("Tras finalmente conseguir la tarta definitiva, Alfredo se la come y experimenta un estado de placer gastronómico que nunca se ha alcanzado y nunca se volverá a alcanzar. Después, vuelve a casa y continúa con su vida");
+            SetSubtitleText("Tras finalmente conseguir la tarta definitiva, Alfredo se la come y experimenta un estado de placer gastronï¿½mico que nunca se ha alcanzado y nunca se volverï¿½ a alcanzar. Despuï¿½s, vuelve a casa y continï¿½a con su vida");
         }
     }
 
