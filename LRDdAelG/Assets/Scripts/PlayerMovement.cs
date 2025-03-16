@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float fanX = 1.25f;
     [SerializeField] float launchForce= 7f;
     
+    private bool respawnTiming = false;
+    private float timer = 0f;
     private GameObject child;
     private Animator animator;
 
@@ -30,7 +32,19 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (respawnTiming)
+        {
+            canMove = false;
+            timer += Time.deltaTime;
+            if (timer >= 1.45f)
+            {
+                respawnTiming = false;
+                timer = 0f;
+                GameManager.Instance.RespawnPlayer();
+                animator.SetBool("defeated", false);
+                canMove = true;
+            }
+        }
         if (speed > 0 && canMove)
         {
             gameObject.transform.position += new Vector3(speed * Time.deltaTime * direction, 0, 0);
@@ -122,5 +136,11 @@ public class PlayerMovement : MonoBehaviour
     public void NowCanMove()
     {
         canMove = true;
+    }
+    public void Die()
+    {
+        animator.SetBool("defeated", true);
+        respawnTiming = true;
+        canMove = false;
     }
 }

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private GameObject uimanager;
     #endregion
 
-    #region Métodos MonoBehaviour
+    #region Mï¿½todos MonoBehaviour
     protected void Awake()
     {
         if (_instance != null)
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    #region Métodos públicos
+    #region Mï¿½todos pï¿½blicos
     public void GivePlayer(GameObject player)
     {
         Player = player;
@@ -77,4 +77,23 @@ public class GameManager : MonoBehaviour
         return uimanager;
     }
     #endregion
+    public void RespawnPlayer()
+    {
+        PlayerSpawn spawnPoint = FindObjectOfType<PlayerSpawn>();
+        if (spawnPoint != null && Player != null)
+        {
+            Player.transform.position = spawnPoint.transform.position;
+            Player.transform.rotation = spawnPoint.transform.rotation;
+        }
+        StopSign[] stopSigns = FindObjectsOfType<StopSign>();
+        foreach (StopSign stopSign in stopSigns)
+        {
+            stopSign.Restart();
+        }
+        TurnSign[] TurnSigns = FindObjectsOfType<TurnSign>();
+        foreach (TurnSign turnSign in TurnSigns)
+        {
+            turnSign.Reactivate();
+        }
+    }
 }

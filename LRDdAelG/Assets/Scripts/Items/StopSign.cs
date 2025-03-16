@@ -32,4 +32,9 @@ public class StopSign : MonoBehaviour
     {
         return active;
     }
+    public void Restart()
+    {
+        active = true;
+        animator.SetInteger("state", 1);
+    }
 }

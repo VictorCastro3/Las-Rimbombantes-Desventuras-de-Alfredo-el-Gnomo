@@ -25,4 +25,9 @@ public class TurnSign : MonoBehaviour
         turn = true;
         animator.SetInteger("state", 1);
     }
+    public void Reactivate()
+    {
+        turn = false;
+        animator.SetInteger("state", 0);
+    }
 }
