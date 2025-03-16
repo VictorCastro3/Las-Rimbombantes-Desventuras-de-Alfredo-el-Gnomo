@@ -1041,6 +1041,14 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 2112194694}
+    - target: {fileID: 1685274424128517728, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 120c96179e429f84eb66e2d08cd3ad05, type: 3}
+    - target: {fileID: 4198107475449677654, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
+      propertyPath: Fan
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4407853245768079738, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
       propertyPath: tilemap
       value: 
