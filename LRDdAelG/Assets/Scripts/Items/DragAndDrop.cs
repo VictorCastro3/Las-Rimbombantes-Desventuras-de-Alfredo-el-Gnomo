@@ -127,7 +127,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private Vector3 GetSnappedWorldPosition()
     {
         Vector3Int cellPosition = tilemap.WorldToCell(GetMouseWorldPosition());
-        return tilemap.CellToWorld(cellPosition) + new Vector3(0.5f, 0.5f, 0);
+        return tilemap.CellToWorld(cellPosition) + new Vector3(0.5f, 0.3f, 0);
     }
 
     private void SetObjectActiveState(GameObject objeto, bool estado)
