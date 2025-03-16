@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4382356081777200415, guid: d249c81aafe854e49ae701de3ef218bf, type: 3}
+      propertyPath: particlesystem
+      value: 
+      objectReference: {fileID: 5691176512600464333}
     - target: {fileID: 5540977498337377269, guid: d249c81aafe854e49ae701de3ef218bf, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
@@ -61,3 +65,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d249c81aafe854e49ae701de3ef218bf, type: 3}
+--- !u!198 &5691176512600464333 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6516069726106331507, guid: d249c81aafe854e49ae701de3ef218bf, type: 3}
+  m_PrefabInstance: {fileID: 1483553477231014590}
+  m_PrefabAsset: {fileID: 0}
