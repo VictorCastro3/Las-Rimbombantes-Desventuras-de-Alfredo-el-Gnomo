@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float bumperX = 5f;
     [SerializeField] float fanY = 1.25f;
     [SerializeField] float fanX = 1.25f;
-    [SerializeField] float launchForce= 7f;    
-
+    [SerializeField] float launchForce= 7f;
+    
     private GameObject child;
     private Animator animator;
 
@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (speed > 0 && canMove)
         {
             gameObject.transform.position += new Vector3(speed * Time.deltaTime * direction, 0, 0);
