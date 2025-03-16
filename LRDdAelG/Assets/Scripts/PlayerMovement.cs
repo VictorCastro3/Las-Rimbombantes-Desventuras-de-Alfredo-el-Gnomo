@@ -152,4 +152,13 @@ public class PlayerMovement : MonoBehaviour
         respawnTiming = true;
         canMove = false;
     }
+    public void Restart()
+    {
+            respawnTiming = false;
+            timer = 0f;
+            GameManager.Instance.RespawnPlayer();
+            animator.SetBool("defeated", false);
+            canMove = true;
+            direction *= 1;
+    }
 }
