@@ -747,6 +747,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3930568867368324942, guid: 4eb288d1f6e30ef49b4e9a81c224b72e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069566957932259601, guid: 4eb288d1f6e30ef49b4e9a81c224b72e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.48
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1041,6 +1049,14 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 2112194694}
+    - target: {fileID: 1685274424128517728, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 120c96179e429f84eb66e2d08cd3ad05, type: 3}
+    - target: {fileID: 4198107475449677654, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
+      propertyPath: Fan
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4407853245768079738, guid: 1d088452abea78b44af2f591be0e093a, type: 3}
       propertyPath: tilemap
       value: 
@@ -2880,7 +2896,7 @@ Transform:
   m_GameObject: {fileID: 1043166366}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.3, z: 1}
+  m_LocalPosition: {x: 0, y: 3.3, z: 3}
   m_LocalScale: {x: 5.57, y: 5.57, z: 5.57}
   m_ConstrainProportionsScale: 1
   m_Children: []

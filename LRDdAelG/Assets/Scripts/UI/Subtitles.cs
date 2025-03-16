@@ -51,11 +51,11 @@ public class Subtitles : MonoBehaviour
             if (!death)
             {
                 PlayAudioClip(0);
-                SetSubtitleText("Este es Alfredo el gnomo. Hay dos cosas que deber�as saber de �l. Primero, Alfredo es muy tonto. Segundo, le encanta la tarta. Su objetivo es conseguir la tarta definitiva");
+                SetSubtitleText("Este es Alfredo el gnomo. Hay dos cosas que deberías saber de el. Primero, Alfredo es muy tonto. Segundo, le encanta la tarta. Su objetivo es conseguir la tarta definitiva");
             }
             else
             {
-                deathSub = rnd.Next(1, 4);
+                deathSub = rnd.Next(1, 2);
                 if (deathSub == 1 && !chosen1)
                 {
                     PlayAudioClip(1);
@@ -68,12 +68,6 @@ public class Subtitles : MonoBehaviour
                     SetSubtitleText("Cu�ntas veces vas a fallar este nivel, Alcornoque?");
                     chosen2 = true;*/
                 }
-                else if (deathSub == 3 && !chosen3)
-                {
-                    /*PlayAudioClip(3);
-                    SetSubtitleText("Ramas y centauros");
-                    chosen3 = true;*/
-                }
             }
         }
         else if (Lv2)
@@ -81,7 +75,7 @@ public class Subtitles : MonoBehaviour
             if (!death)
             {
                 PlayAudioClip(4);
-                SetSubtitleText("Hola Alfredo! Soy el b�ho protector de este bosque. Vengo a decirte que te vayas de mi maldito hogar, est�s disturbando la paz");
+                SetSubtitleText("Hola Alfredo! Soy el búho protector de este bosque. Vengo a decirte que te vayas de mi maldito hogar, estás disturbando la paz");
             }
             else
             {
@@ -89,25 +83,25 @@ public class Subtitles : MonoBehaviour
                 if (deathSub == 1 && !chosen1)
                 {
                     PlayAudioClip(5);
-                    SetSubtitleText("Tengo una ramada de �rboles militares esperando al momento en el que salgas de aqu�");
+                    SetSubtitleText("Tengo una ramada de árboles militares esperando al momento en el que salgas de aquí");
                     chosen1 = true;
                 }
                 else if (deathSub == 2 && !chosen2)
                 {
                     PlayAudioClip(6);
-                    SetSubtitleText("En un lugar de las ramas cuyo nombre no quiero recordar, vivi� Don Alfredo y Sancho tarta");
+                    SetSubtitleText("En un lugar de las ramas cuyo nombre no quiero recordar, vivió Don Alfredo y Sancho tarta");
                     chosen2 = true;
                 }
                 else if (deathSub == 3 && !chosen3)
                 {
                     PlayAudioClip(7);
-                    SetSubtitleText("Hola, soy Plantonio Lorrama. �Quieres saber cu�nto vale tu seta?");
+                    SetSubtitleText("Hola, soy Plantonio Lorrama. Quieres saber cuanto vale tu seta?");
                     chosen3 = true;
                 }
                 else if (deathSub == 4 && !chosen4)
                 {
                     PlayAudioClip(8);
-                    SetSubtitleText("T� t� t�����La casa de las ramas?");
+                    SetSubtitleText("Tú tú tú....La casa de las ramas?");
                     chosen4 = true;
                 }
             }
@@ -117,7 +111,7 @@ public class Subtitles : MonoBehaviour
             if (!death)
             {
                 PlayAudioClip(9);
-                SetSubtitleText("Has llegado tan lejos. Tras haberte pasado el gran n�mero de 2 niveles, �Parece que Alfredo por fin divisa la tarta definitiva!");
+                SetSubtitleText("Has llegado tan lejos. Tras haberte pasado el gran número de 2 niveles, �Parece que Alfredo por fin divisa la tarta definitiva!");
             }
             else
             {
@@ -125,13 +119,13 @@ public class Subtitles : MonoBehaviour
                 if (deathSub == 1 && !chosen1)
                 {
                     PlayAudioClip(10);
-                    SetSubtitleText("A pesar de todos tus fallos, sigues intentando conseguir esta tarta. Se podr�a decir que tienes mucha determinaci�n");
+                    SetSubtitleText("A pesar de todos tus fallos, sigues intentando conseguir esta tarta. Se podría decir que tienes mucha determinación");
                     chosen1 = true;
                 }
                 else if (deathSub == 2 && !chosen2)
                 {
                     PlayAudioClip(11);
-                    SetSubtitleText("La soluci�n no es tan dif�cil. Te est�s llendo por las ramas");
+                    SetSubtitleText("La solución no es tan difícil. Te estás llendo por las ramas");
                     chosen2 = true;
                 }
                 else if (deathSub == 3 && !chosen3)
@@ -143,7 +137,7 @@ public class Subtitles : MonoBehaviour
                 else if (deathSub == 4 && !chosen4)
                 {
                     PlayAudioClip(13);
-                    SetSubtitleText("Espera un momento. �Es ese Facundo, la mascota de la asociaci�n de la facultad de inform�tica de la universidad complutense de Madrid LAG? �Es incre�ble! Si solo lo pudieras ver");
+                    SetSubtitleText("Espera un momento. ¿Es ese Facundo, la mascota de la asociación de la facultad de informática de la universidad complutense de Madrid LAG? ¡Es increíble! Si solo lo pudieras ver");
                     chosen4 = true;
                 }
             }
